@@ -84,13 +84,12 @@ public class AddVehicleActivity extends AppCompatActivity implements AdapterView
             ratingConverter = Integer.parseInt(ratingInput);
             capacityConverter = Integer.parseInt(capacityInput);
         }
+
         catch(Exception e)
         {
             Toast.makeText(AddVehicleActivity.this, "Enter a number for the capacity and rating", Toast.LENGTH_SHORT).show();
             return;
         }
-
-
         // outline possibilities for each vehicle type and input all information (including type-specific information) into the Firebase database//
         // after input is inside the database, go to VehicleInfoActivity class//
         if(text.equals("Car"))
@@ -119,6 +118,7 @@ public class AddVehicleActivity extends AppCompatActivity implements AdapterView
             Intent intent = new Intent(this, VehicleInfoActivity.class);
             startActivity(intent);
         }
+
         if(text.equals("Segway"))
         {
             Segway segwayObject = new Segway(ownerInput, carModelInput, capacityConverter, ratingConverter, maker, text, openInput);
